@@ -52,8 +52,6 @@ app.post("/todo", async (req, res) => {
         name: req.body.todoName
         
     });
-    await User.findByIdAndUpdate({name: req.body.user}, { $push: { todos: newTodo._id } }, // Append the new todo ID to the `todos` array
-        { new: true })
     return res.status(200).json(newTodo);
 });
 
