@@ -41,7 +41,7 @@ app.post("/user", async (req, res) => {
 app.get("/user", async (req, res) => {
     const userPayload = {};
     userPayload.name = req.body.name;
-    const user = await User.findOne({ name: userPayload.name });
+    const user = await User.findOne({ name: userPayload.name }).populate("Todo");
 
     return res.status(200).json(user);
 });
